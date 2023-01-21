@@ -58,22 +58,15 @@ const App = () => {
               onClick: () => {
                 navigate("/stock");
               },
-            },
-            {
-              key: "2",
-              icon: <AppstoreOutlined />,
-              label: "Quotes",
-              onClick: () => {
-                navigate("/quotes");
-              },
-            },
+            }
           ]}
         />
       </Sider>
       <Content>
         <Routes>
-          <Route exact path="/stock" element={<Stock />} />
-          <Route path="/quotes" element={<Quotes />} />
+        <Route path="/" element={<Stock />} />
+          <Route path="/stock" element={<Stock />} />
+          <Route exact path="/quotes/:quotesId" element={<Quotes />} />
         </Routes>
       </Content>
     </Layout>
