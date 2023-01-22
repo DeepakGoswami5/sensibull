@@ -17,3 +17,22 @@ export const stockColumns = [
         key: "sector",
     }
 ]
+
+export const quotesColumns = [
+    {
+        title: "Price",
+        dataIndex: "price",
+        key: "price",
+    },
+    {
+        title: "Time",
+        dataIndex: "time",
+        key: "time",
+        sorter: (a, b) => new Date(a.time) - new Date(b.time)
+    },
+    {
+        title: "Valid Till",
+        dataIndex: "valid_till",
+        key: "valid_till",
+    }
+]

@@ -18,14 +18,11 @@ export const Stock = () => {
     const handleChange = (value) => {
         const temp = stockData.slice(1, -1)
         let tempStockData = []
-        console.log("temp",temp)
         temp?.map((item) => {
-            console.log("item",item)
             if(searchStringInArray(value,item)){
                 tempStockData.push(item)
             }
         })
-        console.log("tempStockData",tempStockData)
         setStockData(tempStockData)
     };
     function searchStringInArray (val, strArray) {
