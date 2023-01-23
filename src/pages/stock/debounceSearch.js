@@ -1,8 +1,6 @@
 import React, { useCallback, useState } from "react";
 import { Input } from "antd"
-export const DebounceSearch = ({handleChange}) => {
-    const [suggestions, setSuggestions] = useState("");
-
+export const DebounceSearch = ({ onhandleChange }) => {
     const debounce = (func) => {
         let timer;
         return function (...args) {
@@ -15,7 +13,7 @@ export const DebounceSearch = ({handleChange}) => {
         };
     };
 
-    const optimizedFn = useCallback(debounce(handleChange), []);
+    const optimizedFn = useCallback(debounce(onhandleChange), []);
 
     return (
         <>
@@ -23,15 +21,6 @@ export const DebounceSearch = ({handleChange}) => {
                 placeholder="Enter something here..."
                 onChange={(e) => optimizedFn(e.target.value)}>
             </Input>
-            {suggestions.length > 0 && (
-                <div className="autocomplete">
-                    {suggestions.map((el, i) => (
-                        <div key={i} className="autocompleteItems">
-                            <span>{el.name}</span>
-                        </div>
-                    ))}
-                </div>
-            )}
         </>
     );
 };
